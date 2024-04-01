@@ -1,0 +1,32 @@
+<!-- cadastro_pedido.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Pedido</title>
+</head>
+<body>
+    <h2>Cadastro de Pedido</h2>
+    <form method="POST" action="{{ url_for('cadastro_pedido') }}">
+        <label for="id_cliente">ID do Cliente:</label>
+        <select id="id_cliente" name="id_cliente">
+            {% for cliente in clientes %}
+                <option value="{{ cliente.id }}">{{ cliente.nome }}</option>
+            {% endfor %}
+        </select>
+
+        <h3>Selecione os Produtos:</h3>
+        {% for produto in produtos %}
+            <input type="checkbox" id="produto_{{ produto.id }}" name="produtos" value="{{ produto.id }}">
+            <label for="produto_{{ produto.id }}">{{ produto.id }} - {{ produto.nome }} - Preço: R${{ produto.preco }}</label>
+            <input type="number" id="quantidade_{{ produto.id }}" name="quantidade_{{ produto.id }}" min="1" value="1">
+            <br>
+        {% endfor %}
+
+    <input type="submit" value="Cadastrar Pedido">
+    </form>
+</body>
+</html>
+

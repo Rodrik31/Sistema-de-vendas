@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Vendas</title>
+</head>
+<body>
+    <h1>Bem-vindo ao Sistema de Vendas</h1>
+    <ul>
+        <li><a href="{{ url_for('cadastro_cliente') }}">Cadastro de clientes</a></li>
+        <li><a href="{{ url_for('cadastro_produto') }}">Cadastro de produtos</a></li>
+        <li><a href="{{ url_for('cadastro_pedido') }}">Cadastrar pedidos</a></li>        
+        <li><a href="{{ url_for('todas_as_vendas') }}">Todas as vendas</a></li>
+    </ul>
+</body>
+</html>

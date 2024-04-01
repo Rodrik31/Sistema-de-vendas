@@ -1,0 +1,24 @@
+<!-- todas_as_vendas.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todas as Vendas</title>
+</head>
+<body>
+    <h2>Todas as Vendas</h2>
+    <ul>
+        {% for pedido in pedidos %}
+            <h3>Pedido para {{ pedido.cliente['nome'] }}</h3>
+            <ul>
+                {% for item in pedido.produtos %}
+                    <li>{{ item.produto.nome }} - Quantidade: {{ item.quantidade }} - Valor total: R${{ item.valor_total_item }}</li>
+                {% endfor %}
+            </ul>
+            <p>Valor total do pedido: R${{ pedido.total_pedido }}</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>
